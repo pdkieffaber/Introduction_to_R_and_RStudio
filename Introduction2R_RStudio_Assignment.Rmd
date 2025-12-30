@@ -1,0 +1,152 @@
+---
+title: "Introduction to R & RStudio"
+author: "YOUR NAME"
+date: ""
+output:
+  html_document:
+---
+
+# Overview
+This lab is designed to help you become comfortable working in the R environment and producing reproducible documents using R Markdown. You will create a short report that includes formatted text and working R code, and you will practice creating variables, building a small dataset, inspecting it, filtering it with logical conditions, and indexing vectors/data frames.
+
+**Due Date:** 02/10/26
+
+---
+
+## What to Submit
+Push **both** of the following files to your GitHub classroom repository:
+
+1. Your completed **`.Rmd`** file  
+2. The knitted output file (**`.html` format**)
+
+**Reminder**
+
+Knit early and often. Most problems are easiest to fix when you catch them immediately (e.g., a missing parenthesis, a misspelled column name, or a chunk that runs out of order).
+---
+
+# Part A — R Markdown Setup and Formatting
+
+## A.1 YAML Header (5 points)
+Make sure your YAML header includes:
+
+- Your name (in the `author` argument)
+- The date (in the `date` argument)
+- HTML output with:
+  1. Table of contents = `true`
+  2. Table of contents depth set to 2
+  3. Section numbering = `true`
+
+## A2. Document Formatting
+In the body of your RMarkdown document, Write a brief description of the dataset you selected to use this semester and a general idea of the kinds of research questions you might address.  Be sure to include all of the following:
+
+- **Headers**: at least two levels (e.g., `#` and `##`)
+- **One ordered or unordered list**
+- **One hyperlink** using `[text](url)` (example: [The R Project](https://www.r-project.org/))
+- **One embedded image** using either:
+  - `![](path/to/image.png)` or
+  - `<img src="path/to/image.png" width="400">`
+
+---
+
+# Part B — R Basics
+
+## B1. Calculator Practice (5 points)
+Use the code chunk below to show:
+
+- one addition
+- one multiplication
+- one exponentiation
+- one modulus (`%%`)
+
+```{r calculator_practice}
+# your calculations here
+
+```
+
+## B2. Variables
+Start a new code chunk below and create six R variables:
+
+- 2 numeric (e.g., age, hours_sleep)
+- 2 character (e.g., participant_id, condition)
+- 2 logical (e.g., is_complete, is_eligible)
+
+# Part C — Build a Small Dataset and Inspect It
+
+
+## C1. Create the dataset study_data
+
+Run the code chunk below to create a small dataset:
+```{r create_dataset}
+set.seed(123)
+study_data <- data.frame(
+id = sprintf("P%02d", 1:30),
+age = sample(18:30, 30, replace = TRUE),
+condition = sample(c("control", "treatment"), 30, replace = TRUE),
+sleep_hours = round(rnorm(30, mean = 7, sd = 1.2), 1),
+stress = round(rnorm(30, mean = 50, sd = 10), 0),
+memory_score = round(rnorm(30, mean = 75, sd = 8), 0)
+)
+```
+
+## C2. Inspect the data
+
+Create a code chunk labeled inspect_dataframe and run:
+
+- head(study_data)
+- tail(study_data)
+- str(study_data)
+- summary(study_data)
+
+**Answer in text:**
+
+1. How many rows and columns does the dataset have?
+2. Which variables are numeric vs. character?
+3. Identify one value range that seems plausible and one that you would want to double-check if this were a real study.
+
+# Part D — Relational/Logical Operators + Filtering 
+
+## D1. Relational + logical operator practice
+
+In a code chunk below, create two variables, `x` and `y`, each with a numeric value between 1 and 10. Then use relational operators to test the following:
+
+1. is x less than or equal to 10?
+2. is y less than or equal to 5?
+3. is x exactly equal 7?
+4. is y not equal to 5?
+5. is x greater than y?
+6. Is x greater than 5 and y less than 10?
+7. Is x equal to 5 or y equal to 5 (or both)?
+8. Is it not true that x is greater than y?
+
+## D2. Filter the data frame
+
+Using study_data from C1, create two filtered data frames:
+
+1. "treatment_high_stress" <- participants in "treatment" with stress > 55
+2. "low_sleep_or_low_memory" <- participants with sleep_hours < 6 OR memory_score < 70
+
+For each filtered dataset:
+
+- Print the filtered rows
+- Report how many rows it contains (hint: use `nrow()`)
+- Write 2–3 sentences describing what your filter did and why logical operators are useful.
+
+
+# Part E — Indexing and Slicing
+
+## E1. Vector indexing
+
+In a new code chunk, create a vector "ages" <- study_data$age and then show:
+
+1. the 3rd element
+2. elements 2 through 6
+3. every third element starting at 2 (hint: use `seq()`)
+
+## E2. Data frame indexing
+
+Using the study_data dataset, show the following in a new code chunk below:
+
+1. the 5th row (all columns)
+2. the sleep_hours column using `$`
+3. a two-column subset showing just the "id" and "memory_score" columns
+
