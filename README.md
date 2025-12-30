@@ -1,1 +1,2 @@
 # Introduction_to_R_and_RStudio
+This lab is designed to help you become comfortable working in the R environment and producing reproducible documents using R Markdown. You will create a short report that includes formatted text and working R code, and you will practice creating variables, building a small dataset, inspecting it, filtering it with logical conditions, and indexing vectors/data frames.
