@@ -103,6 +103,18 @@ Create a code chunk labeled inspect_dataframe and run:
 2. Which variables are numeric vs. character?
 3. Identify one value range that seems plausible and one that you would want to double-check if this were a real study.
 
+## C3. typeof() vs str() on basic objects
+
+Run:
+
+1. typeof(study_data)
+2. str(study_data)
+
+**Answer in text**:
+
+- What kind of information does typeof() give you?
+- What extra information does str() provide that typeof() does not?
+
 # Part D — Relational/Logical Operators + Filtering 
 
 ## D1. Relational + logical operator practice
@@ -149,4 +161,35 @@ Using the study_data dataset, show the following in a new code chunk below:
 1. the 5th row (all columns)
 2. the sleep_hours column using `$`
 3. a two-column subset showing just the "id" and "memory_score" columns
+4. the "id" numbers of those participants who sleep more than 7 hours per night.
 
+# Part F - Using R's Help System
+
+## F1. Using help() and ?
+
+In a code chunk, open the help page for the `mean` function.
+
+```{r}
+#Your code here
+```
+
+**Answer in text**:
+
+- What is the purpose of mean()?
+- What does the trim argument do (based on the help page)?
+- What does the na.rm argument do (based on the help page)?
+
+
+## F2. Searching the help system with help.search() / ??
+
+Sometimes you know what you want to do but not the function name. Use the help search system to find a function related to each topic below:
+
+- Search for help on correlation
+- Search for help on standard deviation
+- Search for help on sampling (random samples)
+
+For each search (using either help.search("...") or ??):
+
+In your text, write the name of one function you found that seems most relevant, get the help page for that function, and then write one sentence about what that function does and why it matches the search topic.
+
+**Answer in text**:
