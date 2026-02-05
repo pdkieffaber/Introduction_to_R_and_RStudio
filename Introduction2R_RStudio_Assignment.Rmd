@@ -59,7 +59,13 @@ Use the code chunk below to show:
 - one modulus (`%%`)
 
 ```{r calculator_practice}
-# your calculations here
+5+10
+
+5*10
+
+2**10
+
+10%%5
 
 ```
 
